@@ -1,30 +1,21 @@
-// Animated abstract open/close
-document.querySelectorAll('.abs').forEach(function (abs) {
-  var btn = abs.querySelector('button'), body = abs.querySelector('.body');
+// [Abstract] toggles on the research page
+document.querySelectorAll('.paper button[data-abs]').forEach(function (btn) {
+  var paper = btn.closest('.paper'), body = paper.querySelector('.abs');
   btn.addEventListener('click', function () {
-    var open = abs.classList.toggle('open');
-    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    body.style.height = (open ? body.scrollHeight : body.offsetHeight) + 'px';
-    if (!open) {
+    var open = paper.classList.contains('open');
+    if (open) {
+      body.style.height = body.offsetHeight + 'px';
+      paper.classList.remove('open');
       requestAnimationFrame(function () { body.style.height = '0px'; });
+      btn.setAttribute('aria-expanded', 'false');
     } else {
-      body.addEventListener('transitionend', function h() {
-        body.style.height = 'auto';
-        body.removeEventListener('transitionend', h);
-      });
+      paper.classList.add('open');
+      body.style.height = 'auto';
+      var h = body.scrollHeight;
+      body.style.height = '0px';
+      requestAnimationFrame(function () { body.style.height = h + 'px'; });
+      body.addEventListener('transitionend', function done() { body.style.height = 'auto'; body.removeEventListener('transitionend', done); });
+      btn.setAttribute('aria-expanded', 'true');
     }
   });
 });
-
-// Highlight the section in view in the top bar
-var navLinks = document.querySelectorAll('nav a[data-sec]');
-if ('IntersectionObserver' in window) {
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) {
-        navLinks.forEach(function (l) { l.classList.toggle('active', l.dataset.sec === e.target.id); });
-      }
-    });
-  }, { rootMargin: '-40% 0px -55% 0px' });
-  document.querySelectorAll('main section').forEach(function (s) { io.observe(s); });
-}
