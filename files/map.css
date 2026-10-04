@@ -1,0 +1,69 @@
+/* Research map: chart tokens (validated default palette, light surface) */
+.viz-root{
+  --surface-1:#f8f7f4; --text-primary:#1c1c1c; --text-secondary:#5b5752; --grid:#e3e0da;
+  --t1:#2a78d6; --t2:#eb6834; --t3:#1baf7a; --t4:#eda100; --t5:#e87ba4; --t6:#4a3aa7;
+}
+.lede{margin:0 0 26px;font-size:1.05rem;color:var(--text-secondary)}
+h2.vh{font:700 1.1rem var(--font);color:var(--accent);margin:80px 0 26px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+section:first-of-type h2.vh{margin-top:0}
+.sub{margin:0 0 10px;color:var(--text-secondary);font-size:.95rem}
+
+/* strip */
+.strip{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin:34px 0 10px;padding-top:26px;border-top:1px solid var(--line)}
+.stat .n{font:700 1.7rem var(--font);line-height:1.1}
+.stat .l{font-size:.82rem;color:var(--text-secondary);line-height:1.35;min-height:2.7em;margin:2px 0 6px}
+.arr{display:grid;grid-template-columns:repeat(10,8px);gap:2px}
+.arr i{display:block;width:8px;height:8px;border-radius:2px}
+
+/* flow */
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.82rem;color:var(--text-secondary);margin:4px 0 8px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
+/* the flow block is wider than the text column so the chart keeps its width with the paper list beside it */
+.flow{width:min(1140px,calc(100vw - 40px));margin-left:calc(50% - min(570px,50vw - 20px));display:grid;grid-template-columns:1fr 250px;gap:20px;align-items:start}
+#sankey{width:100%;height:460px;display:block}
+#sankey text{font:11px var(--font);fill:var(--text-primary);paint-order:stroke;stroke:var(--surface-1);stroke-width:3px;stroke-linejoin:round}
+#sankey .col{font:700 11px var(--font);fill:var(--text-secondary);letter-spacing:.08em;text-transform:uppercase}
+#sankey .link{fill:none;stroke-opacity:.35;transition:stroke-opacity .2s ease}
+#sankey .node rect{stroke:var(--surface-1);stroke-width:2px;cursor:default}
+#sankey.dim .link{stroke-opacity:.06}
+#sankey.dim .link.on{stroke-opacity:.8}
+#sankey.dim .node rect{opacity:.35}
+#sankey.dim .node.on rect{opacity:1}
+.side{border-left:1px solid var(--line);padding-left:14px;height:460px;display:flex;flex-direction:column}
+.ph{font:700 11px var(--font);letter-spacing:.08em;text-transform:uppercase;color:var(--text-secondary);margin:0 0 8px;line-height:16px;padding-top:4px}
+.papers{font-size:.8rem;overflow:auto;flex:1}
+.papers div{padding:5px 6px;border-radius:3px;cursor:default;display:flex;gap:8px;align-items:flex-start;transition:background-color .15s ease}
+.papers div:hover,.papers div.on{background:#ecebe7}
+.papers i{width:9px;height:9px;border-radius:2px;flex:none;margin-top:4px}
+
+/* regions */
+.regions{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.region{background:#fff;border:1px solid var(--line);border-radius:6px;padding:12px 12px 10px;cursor:default;transition:border-color .2s ease}
+.region:hover{border-color:var(--accent)}
+.region .name{font-weight:700}
+.region .cover{font-size:.8rem;color:var(--text-secondary);min-height:2.6em}
+.region .dots{display:flex;gap:3px;margin-top:8px;flex-wrap:wrap}
+.region .dots i{width:9px;height:9px;border-radius:2px;display:inline-block}
+.region .cnt{font-size:.78rem;color:var(--text-secondary);margin-top:4px}
+
+/* trajectory */
+#traj{width:100%;height:310px;display:block}
+.viz-root{animation:none}
+#traj text{font:11px var(--font);fill:var(--text-primary)}
+#traj .axis line,#traj .axis path{stroke:var(--grid)}
+#traj .axis text{fill:var(--text-secondary)}
+#traj circle{stroke:var(--surface-1);stroke-width:2px;cursor:default}
+#traj g g{cursor:default}
+#traj .lbl{font-size:10.5px}
+
+.tip{position:fixed;z-index:20;max-width:320px;background:#fff;border:1px solid var(--line);border-radius:6px;box-shadow:0 6px 18px rgba(0,0,0,.12);padding:10px 12px;font-size:.82rem;line-height:1.4;pointer-events:none}
+.tip b{display:block;margin-bottom:3px}
+.tip span{color:var(--text-secondary)}
+
+@media (max-width:800px){
+  .strip,.regions{grid-template-columns:repeat(2,1fr)}
+  .flow{width:auto;margin-left:0;grid-template-columns:1fr}
+  .side{border-left:0;padding-left:0;height:auto}
+  #sankey{height:520px}
+}
