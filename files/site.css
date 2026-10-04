@@ -12,7 +12,7 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 var(--font)}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 var(--font);min-height:100vh;display:flex;flex-direction:column}
 a{color:var(--link);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s ease,color .2s ease}
 a:hover{border-bottom-color:currentColor}
 .wrap{max-width:900px;margin:0 auto;padding:0 20px}
@@ -27,7 +27,7 @@ nav a{font:400 .78rem var(--font);letter-spacing:.14em;text-transform:uppercase;
 nav a:hover{background:rgba(255,255,255,.45)}
 nav a.active{background:var(--grey)}
 
-main{padding:40px 0 20px;animation:rise .5s ease both}
+main{padding:40px 0 20px;animation:rise .5s ease both;flex:1;width:100%}
 @keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
 /* home */
@@ -68,7 +68,7 @@ td:first-child{width:110px;color:var(--muted);white-space:nowrap;font:400 .8rem 
 table.refs td:first-child{width:200px;color:var(--fg);font:700 1rem var(--font);padding-top:8px}
 td strong{font-weight:700}
 
-footer{margin-top:56px;background:var(--grey);padding:26px 0 30px;text-align:center;font:.85rem var(--font);color:var(--fg)}
+footer{margin-top:40px;background:var(--grey);padding:26px 0 30px;text-align:center;font:.85rem var(--font);color:var(--fg)}
 .icons{display:flex;justify-content:center;gap:12px;margin-bottom:12px}
 .icons a{width:36px;height:36px;border-radius:50%;background:#5f6368;display:grid;place-items:center;border:0;transition:background-color .2s ease}
 .icons a:hover{background:var(--accent)}
