@@ -1,6 +1,6 @@
 // Google Analytics 4. Replace the ID below with the Measurement ID from analytics.google.com
 // (Admin > Data streams > Web > "G-..."). Nothing is sent while it is the placeholder.
-var GA_ID = 'G-XXXXXXXXXX';
+var GA_ID = 'G-C14GSVH2LP';
 if (/^G-[A-Z0-9]{6,}$/.test(GA_ID) && GA_ID !== 'G-XXXXXXXXXX') {
   var s = document.createElement('script');
   s.async = true;
