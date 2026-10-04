@@ -150,12 +150,14 @@
     var W = s.node().clientWidth, H = s.node().clientHeight, m = { l: 16, r: 16, t: 14, b: 26 };
     var NOW = 2026.75;
     var x = d3.scaleLinear().domain([2017.6, NOW]).range([m.l, W - m.r]);
-    var y = d3.scalePoint().domain(TOPICS.map(function (t) { return t.id; })).range([m.t + 12, H - m.b - 12]);
+    // most recently started topic at the top; ties keep the legend order
+    var order = TOPICS.slice().sort(function (a, b) { return b.from - a.from || TOPICS.indexOf(a) - TOPICS.indexOf(b); });
+    var y = d3.scalePoint().domain(order.map(function (t) { return t.id; })).range([m.t + 12, H - m.b - 12]);
     s.append('g').attr('class', 'axis').attr('transform', 'translate(0,' + (H - m.b) + ')')
       .call(d3.axisBottom(x).tickValues(d3.range(2018, 2027)).tickFormat(d3.format('d')).tickSize(-(H - m.b - m.t)));
-    s.selectAll('.lane').data(TOPICS).enter().append('text').attr('class', 'lbl').attr('x', m.l).attr('y', function (t) { return y(t.id) - 11; }).attr('fill', '#5b5752').text(function (t) { return t.name; });
+    s.selectAll('.lane').data(order).enter().append('text').attr('class', 'lbl').attr('x', m.l).attr('y', function (t) { return y(t.id) - 11; }).attr('fill', '#5b5752').text(function (t) { return t.name; });
     var g = s.append('g');
-    TOPICS.forEach(function (t) {
+    order.forEach(function (t) {
       var yy = y(t.id), x0 = x(t.from), x1 = x(t.to || NOW);
       var ps = PAPERS.filter(function (p) { return p.topics.indexOf(t.id) >= 0; });
       var html = '<b>' + t.name + '</b><span>' + t.from + (t.to ? ' to ' + t.to : ', continuing') + '</span>' + ps.map(function (p) { return '<span>' + p.t + '</span><br>'; }).join('');
