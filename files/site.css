@@ -49,7 +49,7 @@ h2{font:700 1.25rem var(--font);color:var(--accent);margin:34px 0 14px;padding-b
 h2:first-of-type{margin-top:0}
 /* research page: full-width bands with a centred red heading, as on the Google Site */
 .band{margin:28px calc(50% - 50vw) 22px;padding:12px 20px;background:#ecebe7;text-align:center}
-.band:first-child{margin-top:-44px}
+.band:first-child{margin-top:-16px}
 .band h2{display:inline-block;margin:0;padding:0 0 3px;border:0;border-bottom:2px solid var(--accent);font-size:1.3rem}
 .paper{margin:0 0 24px}
 .paper .t{font-weight:700}
