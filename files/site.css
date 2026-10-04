@@ -27,7 +27,7 @@ nav a{font:400 .78rem var(--font);letter-spacing:.14em;text-transform:uppercase;
 nav a:hover{background:rgba(255,255,255,.45)}
 nav a.active{background:var(--grey)}
 
-main.wrap{padding:110px 20px 60px;animation:rise .5s ease both;flex:1;width:100%}
+main.wrap{padding:44px 20px 40px;animation:rise .5s ease both;flex:1;width:100%}
 @keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
 /* home */
@@ -44,14 +44,14 @@ main.wrap{padding:110px 20px 60px;animation:rise .5s ease both;flex:1;width:100%
 .greet p:first-child{margin-top:10px}
 
 /* section pages */
-h1.page{font:700 1.9rem var(--font);margin:0 0 28px}
+h1.page{font:700 1.8rem var(--font);margin:0 0 16px}
 h2{font:700 1.25rem var(--font);color:var(--accent);margin:34px 0 14px;padding-bottom:6px;border-bottom:1px solid var(--line)}
 h2:first-of-type{margin-top:0}
 /* research page: full-width bands with a centred red heading, as on the Google Site */
-.band{margin:56px calc(50% - 50vw) 36px;padding:22px 20px;background:#ecebe7;text-align:center}
+.band{margin:28px calc(50% - 50vw) 22px;padding:12px 20px;background:#ecebe7;text-align:center}
 .band:first-child{margin-top:0}
-.band h2{display:inline-block;margin:0;padding:0 0 4px;border:0;border-bottom:2px solid var(--accent);font-size:1.45rem}
-.paper{margin:0 0 44px}
+.band h2{display:inline-block;margin:0;padding:0 0 3px;border:0;border-bottom:2px solid var(--accent);font-size:1.3rem}
+.paper{margin:0 0 24px}
 .paper .t{font-weight:700}
 .paper .m{color:var(--muted);font-size:.95em}
 .paper .links{font:400 .82rem var(--font);margin-top:4px}
@@ -72,7 +72,7 @@ td:first-child{width:110px;color:var(--muted);white-space:nowrap;font:400 .8rem 
 table.refs td:first-child{width:200px;color:var(--fg);font:700 1rem var(--font);padding-top:8px}
 td strong{font-weight:700}
 
-footer{margin-top:40px;background:var(--grey);padding:26px 0 30px;text-align:center;font:.85rem var(--font);color:var(--fg)}
+footer{margin-top:24px;background:var(--grey);padding:26px 0 30px;text-align:center;font:.85rem var(--font);color:var(--fg)}
 .icons{display:flex;justify-content:center;gap:12px;margin-bottom:12px}
 .icons a{width:36px;height:36px;border-radius:50%;background:#5f6368;display:grid;place-items:center;border:0;transition:background-color .2s ease}
 .icons a:hover{background:var(--accent)}
