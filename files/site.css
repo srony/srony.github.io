@@ -20,12 +20,13 @@ a:hover{border-bottom-color:currentColor}
 
 /* top bar */
 header{position:sticky;top:0;z-index:10;background:rgba(202,192,179,.94);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:60px}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:60px;max-width:900px}
+.brand span{white-space:nowrap}
 .brand{display:flex;align-items:center;gap:12px;color:var(--fg);border:0;font-size:1.15rem}
 .brand img{width:40px;height:40px;border-radius:2px;transition:transform .35s var(--ease)}
 .brand:hover img{transform:scale(1.06)}
 nav{display:flex;gap:4px}
-nav a{color:var(--fg);padding:10px 12px;min-height:44px;display:inline-flex;align-items:center;border:0;border-radius:2px;font-size:.95rem;transition:background-color .3s var(--ease),color .3s var(--ease)}
+nav a{color:var(--fg);padding:10px 10px;min-height:44px;display:inline-flex;align-items:center;border:0;border-radius:2px;font-size:.95rem;transition:background-color .3s var(--ease),color .3s var(--ease)}
 nav a:hover{background:rgba(183,183,183,.55)}
 nav a.active{background:var(--grey)}
 
