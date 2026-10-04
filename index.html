@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sidharth Rony</title>
+<meta name="description" content="Sidharth Rony, economist at UNU-MERIT, Maastricht University. Technological change, skills and labour markets, measured from large-scale text with natural language processing and large language models.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  /* Palette taken from sites.google.com/view/sidharthrony */
+  :root{
+    --bg:#cac0b3;        /* warm beige page background */
+    --panel:#f9f9f9;     /* off-white panels */
+    --fg:#1c1c1c;        /* charcoal text */
+    --muted:#4a4541;     /* secondary text */
+    --grey:#b7b7b7;      /* nav pill, footer band */
+    --line:rgba(28,28,28,.12);
+    --link:#428bca;      /* link blue */
+    --accent:#980000;    /* dark red accent */
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:76px}
+  body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 "Open Sans","Droid Sans","Segoe UI",Helvetica,Arial,sans-serif;}
+  a{color:var(--link);text-decoration:none;border-bottom:1px solid transparent;transition:color .25s var(--ease),border-color .25s var(--ease)}
+  a:hover{border-bottom-color:currentColor}
+  .wrap{max-width:960px;margin:0 auto;padding:0 16px}
+
+  /* top bar, like the Google Sites header */
+  header{position:sticky;top:0;z-index:10;background:rgba(202,192,179,.92);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:60px}
+  .brand{display:flex;align-items:center;gap:12px;color:var(--fg);border:0;font-size:1.15rem}
+  .brand .mono{width:38px;height:38px;background:var(--panel);display:grid;place-items:center;font-weight:600;font-size:1.05rem;letter-spacing:-.5px;color:var(--fg);border-radius:2px;transition:transform .35s var(--ease)}
+  .brand:hover .mono{transform:rotate(-6deg)}
+  nav{display:flex;gap:4px}
+  nav a{color:var(--fg);padding:6px 12px;border:0;border-radius:2px;font-size:.95rem;transition:background-color .3s var(--ease),color .3s var(--ease)}
+  nav a:hover{background:rgba(183,183,183,.55)}
+  nav a.active{background:var(--grey)}
+
+  /* intro */
+  .intro{display:grid;grid-template-columns:230px 1fr;gap:32px;align-items:start;padding:44px 0 10px;animation:rise .7s var(--ease) both}
+  .intro img{width:230px;height:230px;object-fit:cover;object-position:center top;border-radius:3px;box-shadow:0 2px 10px rgba(0,0,0,.15)}
+  .intro h1{margin:0 0 6px;font-size:1.9rem;font-weight:400;line-height:1.2}
+  .intro .role{margin:0 0 14px;color:var(--muted)}
+  .intro .lead{margin:0 0 12px;text-align:justify}
+  .intro .fields{margin:0;color:var(--muted);font-size:.95rem}
+  @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+  section{padding:30px 0 6px;animation:rise .7s var(--ease) both}
+  h2{font-size:1.25rem;font-weight:600;margin:0 0 6px;padding-bottom:6px;position:relative}
+  h2::after{content:"";display:block;width:48px;height:3px;background:var(--accent);margin-top:8px;transition:width .5s var(--ease)}
+  section:hover h2::after{width:96px}
+  h3{font-size:.95rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:26px 0 10px}
+
+  .paper{margin:0 0 14px;padding:12px 16px;background:var(--panel);border-left:4px solid var(--grey);border-radius:2px;transition:border-color .3s var(--ease),transform .3s var(--ease),box-shadow .3s var(--ease)}
+  .paper:hover{border-left-color:var(--accent);transform:translateX(2px);box-shadow:0 2px 10px rgba(0,0,0,.08)}
+  .paper.jmp{border-left-color:var(--accent)}
+  .paper .t{font-weight:600}
+  .paper .m{color:var(--muted);font-size:.93rem}
+  .paper .links{font-size:.9rem;margin-top:2px}
+  .paper .links a{margin-right:14px}
+  .tag{display:inline-block;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;background:var(--accent);color:#fff;padding:1px 7px;border-radius:2px;margin-left:8px;vertical-align:middle;font-weight:600}
+
+  /* abstracts: animated open/close (JS sets the height) */
+  .abs{margin-top:6px;font-size:.93rem}
+  .abs button{all:unset;cursor:pointer;color:var(--link);font-size:.9rem;transition:color .25s var(--ease)}
+  .abs button:hover{color:var(--accent)}
+  .abs button::before{content:"+ ";display:inline-block;transition:transform .35s var(--ease)}
+  .abs.open button::before{transform:rotate(45deg)}
+  .abs .body{height:0;overflow:hidden;opacity:0;transition:height .45s var(--ease),opacity .35s var(--ease)}
+  .abs.open .body{opacity:1}
+  .abs p{margin:8px 0 0;padding:12px 14px;background:var(--bg);border-radius:2px;text-align:justify}
+
+  table{border-collapse:collapse;width:100%;font-size:.95rem;background:var(--panel);border-radius:2px}
+  td{padding:8px 12px;vertical-align:top;border-bottom:1px solid var(--line);transition:background-color .25s var(--ease)}
+  tr:last-child td{border-bottom:0}
+  tr:hover td{background:rgba(202,192,179,.35)}
+  td:first-child{width:130px;color:var(--muted);white-space:nowrap}
+
+  /* footer band with round icons, like the Google Sites footer */
+  footer{margin-top:48px;background:var(--grey);padding:28px 0 34px;text-align:center;font-size:.88rem;color:var(--fg)}
+  .icons{display:flex;justify-content:center;gap:14px;margin-bottom:14px}
+  .icons a{width:38px;height:38px;border-radius:50%;background:#5f6368;display:grid;place-items:center;border:0;transition:background-color .3s var(--ease),transform .3s var(--ease)}
+  .icons a:hover{background:var(--accent);transform:translateY(-2px)}
+  .icons svg{width:18px;height:18px;fill:#fff}
+
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+  @media (max-width:640px){
+    header .wrap{height:auto;flex-direction:column;align-items:flex-start;padding-top:10px;padding-bottom:10px}
+    nav{flex-wrap:wrap}
+    .intro{grid-template-columns:1fr;gap:20px}
+    .intro img{width:170px;height:170px}
+    .intro .lead{text-align:left}
+    td:first-child{width:90px;white-space:normal}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="mono">S|R</span><span>Sidharth Rony</span></a>
+    <nav>
+      <a href="#research" data-sec="research">Research</a>
+      <a href="files/cv_rony.pdf">CV</a>
+      <a href="#teaching" data-sec="teaching">Teaching</a>
+      <a href="#contact" data-sec="contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+  <div class="intro">
+    <img src="files/photo.jpg" alt="Sidharth Rony">
+    <div>
+      <h1>Sidharth Rony</h1>
+      <p class="role">Researcher, UNU-MERIT, Maastricht University<br>Ph.D. in Economics, Royal Holloway, University of London</p>
+      <p class="lead">I am a labour economist and data scientist. My research measures technological change, automation, artificial intelligence, and the green and digital transition, and studies how it reshapes skills, tasks, wages, and the structure of work. I build these measures from large-scale text using natural language processing and large language models, and I pair them with quasi-experimental designs.</p>
+      <p class="fields">Fields: labour economics, economics of innovation, text as data.</p>
+    </div>
+  </div>
+
+  <section id="research">
+    <h2>Research</h2>
+
+    <h3>Job market paper</h3>
+    <div class="paper jmp">
+      <div class="t">LLM Meets Job Advertisements: Unmasking Skill Premia in the UK<span class="tag">JMP</span></div>
+      <div class="m">Forthcoming, <em>Research in Labor Economics</em>, Vol. 54. UNU-MERIT Working Paper 2026-010.</div>
+      <div class="links"><a href="files/rony_jmp.pdf">PDF</a><a href="https://unu-merit.nl/publications/wppdf/2026/wp2026-010.pdf">Working paper</a></div>
+      <div class="abs"><button type="button">Abstract</button><div class="body"><p>Rapid advances in technology and events such as COVID-19 have significantly transformed the modern workplace, potentially altering the skills demanded in jobs. This study examines the evolving demand and posted-wage premia for Information and Communication Technology (ICT), interpersonal, and Artificial Intelligence (AI) skills in the UK labour market. Using a comprehensive dataset of online job advertisements (2016 to 2022), skills are extracted and categorised via GPT-4 zero-shot learning. Cross-sectional log-wage regressions, incorporating occupation and regional fixed effects with three-way clustered standard errors, reveal divergent trends in skill compensation. While interpersonal skills are ubiquitously demanded (approximately 90% of listings), they yield no significant posted-wage premium. In contrast, ICT skills, demanded in approximately 55% of postings, carry a posted-wage premium of approximately 7%. AI skills, mentioned in approximately 3% of postings, carry a posted-wage premium of approximately 9% within the ICT-mentioning subsample.</p></div></div>
+    </div>
+
+    <h3>Working papers</h3>
+    <div class="paper">
+      <div class="t">How Regions Use Large Language Models</div>
+      <div class="m">with Alexandra Badort (TU Munich), 2026. Draft available upon request.</div>
+      <div class="abs"><button type="button">Abstract</button><div class="body"><p>A widespread view holds that the adoption of large language models (LLMs) follows capability at two levels: models are used for the tasks they perform well (machine capability), and the regions whose own capabilities match those tasks (regional capabilities) use them most and take up each improvement first. We test this view on four waves of US state-level data on Anthropic’s Claude, sampled between August 2025 and May 2026, spanning three releases that improved coding. Skill-based measures of regional capabilities built from job postings are the main regressors, alongside the occupational composition of state employment. Regional capabilities are strongly associated with how intensively a state uses the model. Much of this is shared with income and GDP, but skill relatedness survives every control, and in the 2026 data it also appears in Microsoft’s estimates of AI users across assistants. Regional capabilities are not associated with what the model is used for: use follows local occupational composition only weakly, and no more strongly where regional capabilities are deeper. Nor are they associated with how augmentatively states use the model, or with which states gained share of use after the releases; nationally, coding lost more than a third of its share while education and business tasks gained. Because more than nine in ten state–task counts are unpublished, the extensive margin is not identified, and an imputation that fits the published counts overstates the unpublished ones.</p></div></div>
+    </div>
+    <div class="paper">
+      <div class="t">Green and Digital Technology: Exposure, Substitution and Complementarity</div>
+      <div class="m">with Tommaso Ciarli and Önder Nomaler, 2026. Draft available upon request.</div>
+    </div>
+    <div class="paper">
+      <div class="t">LLM as Survey Agent</div>
+      <div class="m">with Tommaso Ciarli and Önder Nomaler, 2025. Draft available upon request.</div>
+    </div>
+    <div class="paper">
+      <div class="t">Standard Occupation Classifier: A Natural Language Processing Approach</div>
+      <div class="m">with Jonathan Patman, 2025. arXiv:2511.23057.</div>
+      <div class="links"><a href="https://arxiv.org/abs/2511.23057">arXiv</a></div>
+    </div>
+    <div class="paper">
+      <div class="t">Automation and Human Capital Investment</div>
+      <div class="m">2024. SSRN Working Paper 5821482.</div>
+      <div class="links"><a href="https://ssrn.com/abstract=5821482">SSRN</a></div>
+    </div>
+
+    <h3>Work in progress</h3>
+    <div class="paper"><div class="t">Skill Relatedness and the Absorption of AI Across US Labor Markets</div><div class="m">with Alexandra Badort</div></div>
+    <div class="paper"><div class="t">The Twin Transition in Labour Demand: Green and Digital Skills in European Online Job Vacancies</div><div class="m">with Tommaso Ciarli, Alberto Marzucchi, Ugo Rizzo and Alejandro Vanegas</div></div>
+    <div class="paper"><div class="t">Recombining Capabilities: Skill Demand Portfolios and Regional Productivity</div><div class="m">with Alexandra Badort, Bernardo Caldarola and Tommaso Ciarli</div></div>
+    <div class="paper"><div class="t">Twin Transition Skill Demand and Regional Productivity</div><div class="m">with Alexandra Badort, Bernardo Caldarola and Tommaso Ciarli</div></div>
+    <div class="paper"><div class="t">Matching Lightcast Skills to the ESCO Framework</div><div class="m">with Alexandra Badort, Bernardo Caldarola and Tommaso Ciarli</div></div>
+    <div class="paper"><div class="t">Green and Digital Technology: Occupational Exposure and Labour Market Effects</div><div class="m">with Tommaso Ciarli and Önder Nomaler</div></div>
+  </section>
+
+  <section id="teaching">
+    <h2>Teaching</h2>
+    <table>
+      <tr><td>2025</td><td>Natural Language Processing for Social Scientists (PhD workshop, Python), Lecturer, UNU-MERIT</td></tr>
+      <tr><td>2019–2025</td><td>Econometrics (UG, R), Teaching Assistant, Royal Holloway, University of London</td></tr>
+      <tr><td>2024–2025</td><td>Family Economics (UG), Teaching Assistant, Royal Holloway</td></tr>
+      <tr><td>2021–2022</td><td>Coding and Programming for Economists (UG, Python) and Data Skills for Economists (UG, R), Teaching Assistant, Royal Holloway</td></tr>
+      <tr><td>2018–2020</td><td>Applied Economics and Policy (UG), Teaching Assistant, Royal Holloway</td></tr>
+    </table>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <table>
+      <tr><td>Email</td><td><a href="mailto:sidharthrony@gmail.com">sidharthrony@gmail.com</a></td></tr>
+      <tr><td>Address</td><td>UNU-MERIT, Boschstraat 24, 6211 AX Maastricht, Netherlands</td></tr>
+      <tr><td>CV</td><td><a href="files/cv_rony.pdf">PDF</a></td></tr>
+    </table>
+  </section>
+</main>
+
+<footer>
+  <div class="icons">
+    <a href="https://github.com/srony" aria-label="GitHub"><svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
+    <a href="https://www.linkedin.com/in/sidharth-rony/" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.26 2.37 4.26 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+  </div>
+  Sidharth Rony<br>United Nations University - MERIT, Maastricht University, Netherlands
+</footer>
+
+<script>
+  // Animated abstract open/close
+  document.querySelectorAll('.abs').forEach(function(abs){
+    var btn = abs.querySelector('button'), body = abs.querySelector('.body');
+    btn.addEventListener('click', function(){
+      var open = abs.classList.toggle('open');
+      body.style.height = (open ? body.scrollHeight : body.offsetHeight) + 'px';
+      if (!open) { requestAnimationFrame(function(){ body.style.height = '0px'; }); }
+      else { body.addEventListener('transitionend', function h(){ body.style.height = 'auto'; body.removeEventListener('transitionend', h); }); }
+    });
+  });
+  // Highlight the section in view in the top bar
+  var links = document.querySelectorAll('nav a[data-sec]');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) {
+        links.forEach(function(l){ l.classList.toggle('active', l.dataset.sec === e.target.id); });
+      }
+    });
+  }, {rootMargin: '-40% 0px -55% 0px'});
+  document.querySelectorAll('main section').forEach(function(s){ io.observe(s); });
+</script>
+</body>
+</html>
