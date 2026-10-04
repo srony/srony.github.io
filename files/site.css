@@ -1,0 +1,92 @@
+/* Palette taken from sites.google.com/view/sidharthrony */
+:root{
+  --bg:#cac0b3;        /* warm beige page background */
+  --panel:#f9f9f9;     /* off-white panels */
+  --fg:#1c1c1c;        /* charcoal text */
+  --muted:#4a4541;     /* secondary text */
+  --grey:#b7b7b7;      /* nav pill, footer band */
+  --line:rgba(28,28,28,.12);
+  --link:#2f6fa3;      /* link blue, darkened a little for contrast on beige */
+  --accent:#980000;    /* dark red accent */
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 "Open Sans","Droid Sans","Segoe UI",Helvetica,Arial,sans-serif}
+a{color:var(--link);text-decoration:none;border-bottom:1px solid transparent;transition:color .25s var(--ease),border-color .25s var(--ease)}
+a:hover{border-bottom-color:currentColor}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px}
+
+/* top bar */
+header{position:sticky;top:0;z-index:10;background:rgba(202,192,179,.92);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:60px}
+.brand{display:flex;align-items:center;gap:12px;color:var(--fg);border:0;font-size:1.15rem}
+.brand img{width:40px;height:40px;border-radius:2px;transition:transform .35s var(--ease)}
+.brand:hover img{transform:scale(1.06)}
+nav{display:flex;gap:4px}
+nav a{color:var(--fg);padding:6px 12px;border:0;border-radius:2px;font-size:.95rem;transition:background-color .3s var(--ease),color .3s var(--ease)}
+nav a:hover{background:rgba(183,183,183,.55)}
+nav a.active{background:var(--grey)}
+
+/* intro */
+.intro{display:grid;grid-template-columns:230px 1fr;gap:32px;align-items:start;padding:44px 0 10px;animation:rise .7s var(--ease) both}
+.intro img{width:230px;height:230px;object-fit:cover;object-position:center top;border-radius:3px;box-shadow:0 2px 10px rgba(0,0,0,.15)}
+.intro h1{margin:0 0 6px;font-size:1.9rem;font-weight:400;line-height:1.2}
+.intro .role{margin:0 0 6px;color:var(--muted)}
+.intro .quick{margin:0 0 14px;font-size:.95rem}
+.intro .quick a{margin-right:14px}
+.intro .lead{margin:0 0 12px;text-align:justify}
+.intro .fields{margin:0 0 4px;color:var(--muted);font-size:.95rem}
+.intro .market{margin:10px 0 0;font-size:.95rem;color:var(--accent);font-weight:600}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+section{padding:30px 0 6px;animation:rise .7s var(--ease) both}
+h2{font-size:1.25rem;font-weight:600;margin:0 0 6px;padding-bottom:6px;position:relative}
+h2::after{content:"";display:block;width:48px;height:3px;background:var(--accent);margin-top:8px;transition:width .5s var(--ease)}
+section:hover h2::after{width:96px}
+h3{font-size:.95rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:26px 0 10px}
+
+.paper{margin:0 0 14px;padding:12px 16px;background:var(--panel);border-left:4px solid var(--grey);border-radius:2px;transition:border-color .3s var(--ease),transform .3s var(--ease),box-shadow .3s var(--ease)}
+.paper:hover{border-left-color:var(--accent);transform:translateX(2px);box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.paper.jmp{border-left-color:var(--accent)}
+.paper .t{font-weight:600}
+.paper .m{color:var(--muted);font-size:.93rem}
+.paper .links{font-size:.9rem;margin-top:2px}
+.paper .links a{margin-right:14px}
+.tag{display:inline-block;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;background:var(--accent);color:#fff;padding:1px 7px;border-radius:2px;margin-left:8px;vertical-align:middle;font-weight:600}
+
+/* abstracts: animated open/close (site.js sets the height) */
+.abs{margin-top:6px;font-size:.93rem}
+.abs button{all:unset;cursor:pointer;color:var(--link);font-size:.9rem;transition:color .25s var(--ease)}
+.abs button:hover{color:var(--accent)}
+.abs button::before{content:"+ ";display:inline-block;transition:transform .35s var(--ease)}
+.abs.open button::before{transform:rotate(45deg)}
+.abs .body{height:0;overflow:hidden;opacity:0;transition:height .45s var(--ease),opacity .35s var(--ease)}
+.abs.open .body{opacity:1}
+.abs p{margin:8px 0 0;padding:12px 14px;background:var(--bg);border-radius:2px;text-align:justify}
+.abs p.note{font-style:italic;color:var(--muted)}
+
+table{border-collapse:collapse;width:100%;font-size:.95rem;background:var(--panel);border-radius:2px}
+td{padding:8px 12px;vertical-align:top;border-bottom:1px solid var(--line);transition:background-color .25s var(--ease)}
+tr:last-child td{border-bottom:0}
+tr:hover td{background:rgba(202,192,179,.35)}
+td:first-child{width:130px;color:var(--muted);white-space:nowrap}
+
+/* footer band with round icons, like the Google Sites footer */
+footer{margin-top:48px;background:var(--grey);padding:28px 0 34px;text-align:center;font-size:.88rem;color:var(--fg)}
+.icons{display:flex;justify-content:center;gap:14px;margin-bottom:14px}
+.icons a{width:38px;height:38px;border-radius:50%;background:#5f6368;display:grid;place-items:center;border:0;transition:background-color .3s var(--ease),transform .3s var(--ease)}
+.icons a:hover{background:var(--accent);transform:translateY(-2px)}
+.icons svg{width:18px;height:18px;fill:#fff}
+footer .small{color:var(--muted);font-size:.8rem;margin-top:8px}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+@media print{header,footer .icons{display:none}body{background:#fff}.paper,table{background:#fff;border:1px solid #ccc}.abs .body{height:auto!important;opacity:1!important}}
+@media (max-width:640px){
+  header .wrap{height:auto;flex-direction:column;align-items:flex-start;padding-top:10px;padding-bottom:10px}
+  nav{flex-wrap:wrap}
+  .intro{grid-template-columns:1fr;gap:20px}
+  .intro img{width:170px;height:170px}
+  .intro .lead{text-align:left}
+  td:first-child{width:90px;white-space:normal}
+}
