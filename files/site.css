@@ -62,7 +62,7 @@ h2:first-of-type{margin-top:0}
 .paper .links button::after{content:"]";color:var(--muted)}
 .abs{height:0;overflow:hidden;opacity:0;transition:height .4s ease,opacity .3s ease}
 .open .abs{opacity:1;height:auto}
-.abs p{margin:10px 0 0;padding:0;font-size:1em;line-height:1.6;color:var(--fg);text-align:justify}
+.abs p{margin:4px 0 0;padding:0;font-size:.95em;line-height:1.5;color:var(--muted);text-align:justify}
 .tag{display:inline-block;font:700 .68rem var(--font);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);padding:1px 6px;border-radius:3px;margin-left:8px;vertical-align:2px}
 
 table{border-collapse:collapse;width:100%}
