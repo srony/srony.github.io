@@ -46,7 +46,7 @@ section{padding:30px 0 6px;animation:rise .7s var(--ease) both}
 h2{font-size:1.35rem;font-weight:400;margin:0 0 6px;padding-bottom:6px;position:relative;font-family:"Libre Baskerville",Georgia,serif}
 h2::after{content:"";display:block;width:48px;height:3px;background:var(--accent);margin-top:8px;transition:width .5s var(--ease)}
 section:hover h2::after{width:96px}
-h3{font-size:.95rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:26px 0 10px}
+h3{font-size:.95rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--fg);margin:26px 0 10px}
 
 .paper{margin:0;padding:12px 0 12px 14px;border-left:3px solid transparent;border-bottom:1px solid var(--line);transition:border-color .3s var(--ease),background-color .3s var(--ease)}
 .paper:last-child{border-bottom:0}
