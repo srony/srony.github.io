@@ -73,7 +73,8 @@ table{border-collapse:collapse;width:100%;font-size:.95rem}
 td{padding:8px 10px 8px 0;vertical-align:top;border-bottom:1px solid var(--line);transition:background-color .25s var(--ease)}
 tr:last-child td{border-bottom:0}
 tr:hover td{background:rgba(202,192,179,.18)}
-td:first-child{width:130px;color:var(--muted);white-space:nowrap}
+td:first-child{width:150px;color:var(--muted);white-space:nowrap}
+#references td:first-child{width:190px;color:var(--fg);font-weight:600}
 
 /* footer band with round icons, like the Google Sites footer */
 footer{margin-top:48px;background:var(--grey);padding:28px 0 34px;text-align:center;font-size:.88rem;color:var(--fg)}
@@ -92,4 +93,5 @@ footer .small{color:var(--muted);font-size:.8rem;margin-top:8px}
   .intro img{width:170px;height:170px}
   .intro .lead{text-align:left}
   td:first-child{width:90px;white-space:normal}
+  #references td:first-child{width:110px}
 }
