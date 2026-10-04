@@ -16,23 +16,23 @@ html{scroll-behavior:smooth;scroll-padding-top:76px}
 body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 "Open Sans","Droid Sans","Segoe UI",Helvetica,Arial,sans-serif}
 a{color:var(--link);text-decoration:none;border-bottom:1px solid transparent;transition:color .25s var(--ease),border-color .25s var(--ease)}
 a:hover{border-bottom-color:currentColor}
-.wrap{max-width:740px;margin:0 auto;padding:0 16px}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px}
 
 /* top bar */
 header{position:sticky;top:0;z-index:10;background:rgba(202,192,179,.94);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:60px;max-width:900px}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:60px;max-width:980px;flex-wrap:wrap}
 .brand span{white-space:nowrap}
-.brand{display:flex;align-items:center;gap:12px;color:var(--fg);border:0;font-size:1.15rem}
+.brand{display:flex;align-items:center;gap:12px;color:var(--fg);border:0;font-size:1.15rem;flex-shrink:0}
 .brand img{width:40px;height:40px;border-radius:2px;transition:transform .35s var(--ease)}
 .brand:hover img{transform:scale(1.06)}
-nav{display:flex;gap:4px}
+nav{display:flex;gap:4px;flex-wrap:wrap}
 nav a{color:var(--fg);padding:10px 10px;min-height:44px;display:inline-flex;align-items:center;border:0;border-radius:2px;font-size:.95rem;transition:background-color .3s var(--ease),color .3s var(--ease)}
 nav a:hover{background:rgba(183,183,183,.55)}
 nav a.active{background:var(--grey)}
 
 /* intro */
-.intro{display:grid;grid-template-columns:180px 1fr;gap:28px;align-items:start;padding:44px 0 10px;animation:rise .7s var(--ease) both}
-.intro img{width:180px;height:180px;object-fit:cover;object-position:center top;border-radius:3px;box-shadow:0 2px 10px rgba(0,0,0,.15)}
+.intro{display:grid;grid-template-columns:200px 1fr;gap:32px;align-items:start;padding:44px 0 10px;animation:rise .7s var(--ease) both}
+.intro img{width:200px;height:200px;object-fit:cover;object-position:center top;border-radius:3px;box-shadow:0 2px 10px rgba(0,0,0,.15)}
 .intro h1{margin:0 0 6px;font-size:2.25rem;font-weight:400;line-height:1.2;font-family:"Libre Baskerville",Georgia,serif}
 .intro .role{margin:0 0 6px;color:var(--muted)}
 .intro .quick{margin:0 0 14px;font-size:.95rem}
@@ -74,7 +74,8 @@ table{border-collapse:collapse;width:100%;font-size:.95rem}
 td{padding:8px 10px 8px 0;vertical-align:top;border-bottom:1px solid var(--line);transition:background-color .25s var(--ease)}
 tr:last-child td{border-bottom:0}
 tr:hover td{background:rgba(202,192,179,.18)}
-td:first-child{width:150px;color:var(--muted);white-space:nowrap}
+td:first-child{width:120px;color:var(--muted);white-space:nowrap}
+td strong{font-weight:600}
 #references td:first-child{width:190px;color:var(--fg);font-weight:600}
 
 /* footer band with round icons, like the Google Sites footer */
