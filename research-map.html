@@ -16,8 +16,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Droid+Sans:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="files/site.css?v=9">
-<link rel="stylesheet" href="files/map.css?v=11">
+<link rel="stylesheet" href="files/site.css?v=10">
+<link rel="stylesheet" href="files/map.css?v=12">
 <script src="files/analytics.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/d3-sankey@0.12.3/dist/d3-sankey.min.js"></script>
@@ -45,7 +45,8 @@
     <h2 class="vh">Topics &rarr; Methods &rarr; Data</h2>
     <div class="legend" id="legend"></div>
     <div class="flow">
-      <svg id="sankey" role="img" aria-label="Flow diagram linking research topics to methods and data sources; one ribbon per paper"></svg>
+      <div class="chart"><svg id="sankey" role="img" aria-label="Flow diagram linking research topics to methods and data sources; one ribbon per paper"></svg></div>
+      <p class="hint">Swipe sideways to see the whole chart.</p>
       <div class="side"><h3 class="ph">Papers</h3><div class="papers" id="papers" aria-label="Papers"></div></div>
     </div>
   </section>

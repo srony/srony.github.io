@@ -21,7 +21,9 @@ section:first-of-type h2.vh{margin-top:0}
 .legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
 /* the flow block is wider than the text column so the chart keeps its width with the paper list beside it */
 .flow{width:min(1140px,calc(100vw - 40px));margin-left:calc(50% - min(570px,50vw - 20px));display:grid;grid-template-columns:1fr 250px;gap:20px;align-items:start}
+.chart{min-width:0}
 #sankey{width:100%;height:460px;display:block}
+.hint{display:none;margin:4px 0 0;font-size:.78rem;color:var(--text-secondary)}
 #sankey text{font:11px var(--font);fill:var(--text-primary);paint-order:stroke;stroke:var(--surface-1);stroke-width:3px;stroke-linejoin:round}
 #sankey .col{font:700 11px var(--font);fill:var(--text-secondary);letter-spacing:.08em;text-transform:uppercase}
 #sankey .link{fill:none;stroke-opacity:.35;transition:stroke-opacity .2s ease}
@@ -65,5 +67,8 @@ section:first-of-type h2.vh{margin-top:0}
   .strip,.regions{grid-template-columns:repeat(2,1fr)}
   .flow{width:auto;margin-left:0;grid-template-columns:1fr}
   .side{border-left:0;padding-left:0;height:auto}
-  #sankey{height:520px}
+  /* phones: keep the chart at a readable width and let it scroll sideways instead of squeezing 23 labels into 340px */
+  .chart{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+  #sankey{width:760px;height:480px}
+  .hint{display:block}
 }
