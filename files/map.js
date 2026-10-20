@@ -38,7 +38,7 @@
   ];
   // One row per paper. topics: first entry gives the paper's colour. year = current version; start = when the work began.
   var PAPERS = [
-    { t: 'LLM Meets Job Advertisements: Unmasking Skill Premiums in UK', s: 'Job market paper, forthcoming RLE', year: 2026, start: 2021, topics: ['skl','ai','llm'], m: ['cls','emb','fe'], d: ['ads'], r: ['uk'] },
+    { t: 'LLM Meets Job Advertisements: Unmasking Skill Premia in the UK', s: 'Job market paper, forthcoming RLE', year: 2026, start: 2021, topics: ['skl','ai','llm'], m: ['cls','emb','fe'], d: ['ads'], r: ['uk'] },
     { t: 'How Regions Use Large Language Models', s: 'with A. Badort; JoEG special issue', year: 2026, start: 2025, topics: ['ai','reg'], m: ['fe','net'], d: ['aei','ads'], r: ['us'] },
     { t: 'Green and Digital Technology: Exposure, Substitution and Complementarity', s: 'with T. Ciarli and Ö. Nomaler', year: 2026, start: 2025, topics: ['gd','auto'], m: ['net','emb','agt'], d: ['pat','wiki','lfs'], r: ['eu'] },
     { t: 'Silicon Survey Agents', s: 'with T. Ciarli and Ö. Nomaler', year: 2025, start: 2023, ongoing: true, topics: ['llm','gd'], m: ['agt'], d: ['exp'], r: ['glob'] },
